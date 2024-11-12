@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video Action Recognition</title>
+    <!-- Add Bootstrap CSS for styling -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+            max-width: 600px;
+        }
+        .header-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        h1 {
+            color: #007bff;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .prediction-result {
+            margin-top: 20px;
+            padding: 15px;
+            font-size: 1.2em;
+            color: #28a745;
+            border: 2px solid #28a745;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <!-- Header Image -->
+        <img src="https://via.placeholder.com/600x200?text=Action+Recognition" class="header-image" alt="Header Image">
+        
+        <!-- Title -->
+        <h1>Human Activity Recognition</h1>
+        
+        <!-- Upload Form -->
+        <div class="form-container mt-4">
+            <p>Upload a video file to predict the action being performed.</p>
+            <form action="/" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <input type="file" class="form-control" name="videofile" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Predict Action</button>
+            </form>
+        </div>
+
+        <!-- Prediction Result -->
+        {% if prediction %}
+        <div class="prediction-result">
+            <h2>Predicted Action:</h2>
+            <p>{{ prediction }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Add Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
